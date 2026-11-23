@@ -1,0 +1,11 @@
+# Incidents fictifs du portail IT-Support (données d'exercice)
+INC-001 | Mot de passe expiré | Impossible de se connecter au portail | résolu
+INC-002 | VPN | Connexion VPN refusée depuis le domicile | ouvert
+INC-003 | Imprimante | Imprimante du 2e étage hors ligne | résolu
+INC-004 | Mot de passe expiré | Compte verrouillé après trois essais | résolu
+INC-005 | VPN | Déconnexions fréquentes du VPN | ouvert
+INC-006 | Messagerie | Boîte aux lettres pleine | résolu
+INC-007 | VPN | Certificat VPN expiré | ouvert
+INC-008 | Mot de passe expiré | Message d'expiration non reçu | résolu
+INC-009 | Imprimante | Bourrage papier répété | ouvert
+INC-010 | VPN | Lenteur du VPN en soirée | ouvert

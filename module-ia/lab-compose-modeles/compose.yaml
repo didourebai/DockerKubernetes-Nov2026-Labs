@@ -1,0 +1,16 @@
+# Lab A3 : une application et un modèle d'IA déclarés dans le même fichier Compose.
+# Prérequis : Docker Compose 2.38 ou plus, Docker Model Runner actif.
+services:
+  chat-app:
+    build: ./app
+    ports:
+      - "8080:5000"
+    models:
+      llm:
+        endpoint_var: MODEL_URL   # variable qui recevra l'adresse du modèle
+        model_var: MODEL_NAME     # variable qui recevra le nom du modèle
+
+models:
+  llm:
+    model: ai/smollm2
+    context_size: 4096

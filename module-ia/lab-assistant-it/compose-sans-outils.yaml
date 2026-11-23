@@ -1,0 +1,14 @@
+services:
+  assistant:
+    build: ./app
+    ports:
+      - "8091:5000"
+    models:
+      llm:
+        endpoint_var: MODEL_URL
+        model_var: MODEL_NAME
+
+models:
+  llm:
+    model: ai/qwen3:1.7b
+    context_size: 8192

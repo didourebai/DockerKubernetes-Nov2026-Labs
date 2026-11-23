@@ -1,0 +1,12 @@
+agents:
+  root:
+    model: dmr/ai/qwen3:1.7b
+    description: Assistant avec recherche web
+    instruction: |
+      Tu es un assistant du support informatique.
+      Utilise l'outil de recherche pour les informations récentes.
+      Réponds en français, de façon courte, et cite le site consulté.
+    toolsets:
+      - type: think
+      - type: mcp
+        ref: docker:duckduckgo

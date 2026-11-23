@@ -1,0 +1,28 @@
+agents:
+  root:
+    model: dmr/ai/qwen3:1.7b
+    description: Coordinateur du traitement des incidents
+    instruction: |
+      Tu coordonnes le traitement des incidents du portail IT-Support.
+      Confie l'analyse des incidents à l'analyste,
+      puis confie la rédaction du message aux utilisateurs au rédacteur.
+      Donne ensuite le résultat final, en français.
+    sub_agents:
+      - analyste
+      - redacteur
+
+  analyste:
+    model: dmr/ai/qwen3:1.7b
+    description: Lit les incidents et identifie les causes probables
+    instruction: |
+      Tu lis le fichier d'incidents indiqué et tu en tires
+      les trois problèmes les plus fréquents, avec leur cause probable.
+    toolsets:
+      - type: filesystem
+
+  redacteur:
+    model: dmr/ai/qwen3:1.7b
+    description: Rédige des messages clairs pour les utilisateurs
+    instruction: |
+      Tu rédiges en français un message court et poli
+      destiné aux utilisateurs, à partir de l'analyse fournie.

@@ -1,0 +1,9 @@
+agents:
+  root:
+    model: dmr/ai/qwen3:1.7b
+    description: Assistant du support informatique
+    instruction: |
+      Tu es un assistant du support informatique.
+      Réponds en français, de façon courte et claire.
+    toolsets:
+      - type: think

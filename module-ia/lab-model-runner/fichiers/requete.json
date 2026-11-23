@@ -1,0 +1,6 @@
+{
+  "model": "ai/smollm2",
+  "messages": [
+    {"role": "user", "content": "Explique en une phrase ce qu'est un conteneur."}
+  ]
+}

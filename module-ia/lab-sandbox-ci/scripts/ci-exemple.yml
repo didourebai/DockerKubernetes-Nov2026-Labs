@@ -1,0 +1,22 @@
+# EXEMPLE À LIRE (ne pas copier dans .github/workflows sans l'adapter).
+# Illustre l'enchaînement d'une tâche sbx dans GitHub Actions.
+# Prérequis : un exécuteur qui supporte la virtualisation (voir le lab S13).
+name: Tâche dans un sandbox
+on: workflow_dispatch
+
+jobs:
+  sandbox:
+    runs-on: self-hosted   # à adapter : l'exécuteur doit permettre la virtualisation
+    steps:
+      - uses: actions/checkout@v4
+      # - Installer sbx ici (voir la page d'installation de la doc Docker Sandboxes)
+      - name: Connexion Docker (jeton d'accès personnel)
+        run: echo "${{ secrets.DOCKER_PAT }}" | sbx login --username "${{ vars.DOCKER_USER }}" --password-stdin
+      - name: Clé du fournisseur de modèle (si un agent est utilisé)
+        run: sbx secret set anthropic --force -t "${{ secrets.ANTHROPIC_API_KEY }}"
+      - name: Tâche
+        run: |
+          sbx create --name ci-task --clone shell .
+          sbx exec ci-task -- sh -c "echo 'Bonjour depuis la CI'"
+          git fetch sandbox-ci-task
+          sbx rm --force ci-task

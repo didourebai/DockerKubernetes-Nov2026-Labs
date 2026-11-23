@@ -1,0 +1,15 @@
+# values-prod.yaml -- Surcharges pour l'environnement de production
+# Utilisation :
+#   helm upgrade --install portail-it chart/ -n it-support --create-namespace -f chart/values-prod.yaml
+#
+# Seules les cles presentes dans values.yaml peuvent etre surchargees.
+# Remarque : storage.size n'est pas surcharge ici, car un PVC deja cree ne peut pas
+# etre agrandi sur Docker Desktop (StorageClass sans "allowVolumeExpansion").
+
+app:
+  version: "7.2.0"
+  replicas: 4               # Plus de repliques en production (haute disponibilite)
+  env: "production"
+
+nginx:
+  replicas: 2

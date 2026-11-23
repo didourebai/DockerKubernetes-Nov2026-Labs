@@ -1,0 +1,12 @@
+# Variante du lab A3 : le modèle est déclaré, mais le service n'y a PAS accès
+# (pas de section « models » dans le service).
+services:
+  chat-app:
+    build: ./app
+    ports:
+      - "8081:5000"
+
+models:
+  llm:
+    model: ai/smollm2
+    context_size: 4096

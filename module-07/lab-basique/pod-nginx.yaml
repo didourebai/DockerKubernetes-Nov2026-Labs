@@ -1,0 +1,14 @@
+# pod-nginx.yaml -- Module 07 Lab basique
+# Un Pod Kubernetes simple avec Nginx
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mon-premier-pod
+  labels:
+    app: premier-pod   # label different : ce Pod ne sera pas "adopte" par le Deployment
+spec:
+  containers:
+  - name: nginx
+    image: nginx:alpine
+    ports:
+    - containerPort: 80

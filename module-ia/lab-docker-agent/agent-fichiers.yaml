@@ -1,0 +1,11 @@
+agents:
+  root:
+    model: dmr/ai/qwen3:1.7b
+    description: Analyste des incidents du portail IT-Support
+    instruction: |
+      Tu analyses des fichiers d'incidents du portail IT-Support.
+      Lis les fichiers demandés, puis réponds en français.
+      N'écris et ne supprime aucun fichier sauf demande explicite.
+    toolsets:
+      - type: think
+      - type: filesystem

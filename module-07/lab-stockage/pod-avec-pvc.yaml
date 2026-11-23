@@ -1,0 +1,20 @@
+# pod-avec-pvc.yaml -- Pod simple qui utilise le PVC
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-stockage-test
+spec:
+  # "sleep" ignore le signal d'arret : sans cette ligne, la suppression attend 30 s
+  terminationGracePeriodSeconds: 1
+  containers:
+  - name: app
+    image: alpine
+    command: ["sh", "-c", "sleep 3600"]
+    volumeMounts:
+    - name: donnees
+      mountPath: /app/data
+  volumes:
+  - name: donnees
+    persistentVolumeClaim:
+      claimName: pvc-donnees-portail
+  restartPolicy: Never

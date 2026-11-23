@@ -1,0 +1,3 @@
+Fichier factice pour le lab Docker Sandboxes.
+Il simule un fichier sensible : FAUX-SECRET-POUR-LE-LAB-67890
+Ne mettez jamais de vrais secrets dans ce lab.
