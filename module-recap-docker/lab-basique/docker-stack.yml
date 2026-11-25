@@ -1,0 +1,41 @@
+# docker-stack.yml -- Module recap Docker (Partie 5 : Swarm)
+# Proche du docker-compose.yml, avec deux differences :
+#   - pas de "build:" ni de "depends_on:" (non supportes par Swarm)
+#   - une section "deploy:" (repliques, mises a jour, redemarrage)
+
+services:
+
+  app:
+    image: compteur:v1                    # Image construite a la Partie 2
+    ports:
+      - "8080:5000"
+    environment:
+      - REDIS_HOST=redis
+      - APP_TITLE=Compteur de visites (Swarm)
+      - APP_COLOR=#e67e22
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 5s
+      restart_policy:
+        condition: on-failure
+    networks:
+      - reseau-recap
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    volumes:
+      - donnees-redis:/data
+    deploy:
+      replicas: 1                         # Une seule base de donnees
+    networks:
+      - reseau-recap
+
+networks:
+  reseau-recap:
+    driver: overlay
+
+volumes:
+  donnees-redis:

@@ -1,0 +1,39 @@
+# docker-compose.yml -- Module recap Docker
+# Le MEME fichier sert a Docker Compose (Partie 4) et a Docker Swarm (Partie 5)
+name: recap
+
+services:
+
+  app:
+    build: ./app                          # Compose construit l'image...
+    image: compteur:v1                    # ...et lui donne ce nom (utilise par Swarm)
+    ports:
+      - "${APP_PORT:-8080}:5000"
+    environment:
+      - REDIS_HOST=redis
+      - APP_TITLE=${APP_TITLE:-Compteur de visites}
+      - APP_COLOR=${APP_COLOR:-#2496ed}
+    depends_on:
+      redis:
+        condition: service_healthy        # Ignore par Swarm (avertissement normal)
+    networks:
+      - reseau-recap
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes   # Ecrit les donnees sur disque
+    volumes:
+      - donnees-redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - reseau-recap
+
+networks:
+  reseau-recap:
+
+volumes:
+  donnees-redis:

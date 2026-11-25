@@ -40,6 +40,8 @@ labs/
 │   ├── lab-volumes/            ← Volumes nommés, bind mounts, sauvegarde
 │   └── lab-fil-rouge/
 ├── module-06/                  ← Docker Swarm
+├── module-recap-docker/        ← Révision de toute la journée Docker (hors fil rouge)
+│   └── lab-basique/            ← Compteur de visites : build, réseau, volume, Compose, Swarm
 ├── module-07/                  ← Kubernetes
 │   ├── lab-basique/            ← Pod, Deployment, Service
 │   ├── lab-configmap/          ← ConfigMap et Secret

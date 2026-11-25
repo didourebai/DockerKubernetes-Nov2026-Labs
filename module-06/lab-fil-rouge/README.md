@@ -140,4 +140,4 @@ docker swarm leave --force
 
 ---
 
-➡️ **Suivant :** [Module 07 — Kubernetes](../../module-07/lab-basique/README.md)
+➡️ **Suivant :** [Module récap Docker — Le compteur de visites, de A à Z](../../module-recap-docker/lab-basique/README.md)
