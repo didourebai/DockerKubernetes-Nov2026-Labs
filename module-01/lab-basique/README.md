@@ -24,7 +24,7 @@ docker --version
 
 **Résultat attendu :**
 ```
-Docker version 28.x.x, build ...   (ou plus récent)
+Docker version 29.x.x, build ...   (ou plus récent)
 ```
 
 Si vous voyez un message d'erreur, assurez-vous que Docker Desktop est bien démarré (icône dans la barre des tâches).
