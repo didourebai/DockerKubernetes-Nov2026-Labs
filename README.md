@@ -12,7 +12,7 @@ Chaque module contient **au moins deux laboratoires** :
 |------|-------------|
 | 🔧 **Lab basique** | Exercices indépendants pour maîtriser les commandes du module |
 | 🏗️ **Lab fil rouge** | Construction progressive du **IT-Support Portal** — un portail web interne d'institution |
-| ➕ **Labs complémentaires** | Modules 05 et 07 : volumes, ConfigMap, stockage, déploiements |
+| ➕ **Labs complémentaires** | Modules 05 et 07 : réseaux, volumes, ConfigMap, stockage, déploiements |
 
 ### Le cas d'utilisation fil rouge : IT-Support Portal
 
@@ -36,6 +36,7 @@ labs/
 ├── module-04/                  ← Optimisation des builds Docker
 ├── module-05/                  ← Réseau, volumes et Docker Compose
 │   ├── lab-basique/            ← Réseaux + premier fichier Compose
+│   ├── lab-reseau-compose/     ← Réseaux bridge, Compose multi-réseaux
 │   ├── lab-volumes/            ← Volumes nommés, bind mounts, sauvegarde
 │   └── lab-fil-rouge/
 ├── module-06/                  ← Docker Swarm

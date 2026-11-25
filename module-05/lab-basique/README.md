@@ -197,4 +197,4 @@ docker compose down
 
 ---
 
-➡️ **Suivant :** [Lab volumes — Persistance des données](../lab-volumes/README.md)
+➡️ **Suivant :** [Lab réseau — Réseaux bridge et Compose multi-réseaux](../lab-reseau-compose/README.md)
