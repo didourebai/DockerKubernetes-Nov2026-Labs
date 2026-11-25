@@ -1,6 +1,6 @@
 # Module IA — Lab intermédiaire A5 : Un assistant IA pour le portail IT-Support
 
-> **Niveau :** Intermédiaire | **Durée estimée :** 45 minutes
+> **Niveau :** Intermédiaire | **Durée estimée :** 60 minutes
 > **Prérequis :** Labs A2 (Model Runner), A3 (Compose et modèles) et A4 (MCP Toolkit), Docker Compose 2.38 ou plus
 > **Accès à un service externe :** **oui** (le serveur DuckDuckGo fait des recherches sur Internet, sans compte)
 
@@ -40,7 +40,7 @@ Ouvrez `compose.yaml` et repérez :
 
 - le service **`assistant`** : reçoit `MODEL_URL` et `MODEL_NAME` (section `models`, comme au lab A3) et l'adresse de la passerelle `MCP_GATEWAY_URL`
 - le modèle **`ai/qwen3:1.7b`** (1,1 Go) : un petit modèle qui sait **demander l'appel d'un outil**
-- le service **`mcp-gateway`** : image `docker/mcp-gateway` à une **version fixée** (`v0.44.3` ; l'étiquette `latest` pointe vers une version plus ancienne), avec `--servers=duckduckgo` (serveur MCP à exposer) et `--transport=streaming` (accessible en HTTP par les autres conteneurs)
+- le service **`mcp-gateway`** : image `docker/mcp-gateway` à une **version fixée** (`v0.44.3`, testée avec ce lab ; ne la remplacez pas par `latest`, dont le comportement peut différer), avec `--servers=duckduckgo` (serveur MCP à exposer) et `--transport=streaming` (accessible en HTTP par les autres conteneurs)
 - le **montage du socket Docker** (`/var/run/docker.sock`) : la passerelle en a besoin pour **lancer** les serveurs MCP comme conteneurs
 - le **jeton** `MCP_GATEWAY_AUTH_TOKEN` : partagé entre la passerelle et l'application
 
@@ -72,7 +72,7 @@ docker compose ps
 docker compose logs mcp-gateway
 ```
 
-**Résultat attendu :** les services `assistant` et `mcp-gateway` sont `running`. Les journaux de la passerelle indiquent le serveur chargé et les outils exposés. Le premier démarrage peut être long (téléchargement du modèle et de l'image du serveur MCP).
+**Résultat attendu :** les services `assistant` et `mcp-gateway` sont `running`. Les journaux de la passerelle indiquent le serveur chargé et les outils exposés. Le premier démarrage peut être long (téléchargement du modèle et de l'image du serveur MCP). Si la toute première question échoue avec une erreur de connexion, attendez une dizaine de secondes que la passerelle écoute (`docker compose logs mcp-gateway`) et réessayez.
 
 ---
 
@@ -151,7 +151,7 @@ Les modèles ne sont pas supprimés par `down` ; pour libérer l'espace :
 
 ```bash
 docker model rm ai/qwen3:1.7b
-docker rmi lab-assistant-it-assistant lab-a5-sans-assistant docker/mcp-gateway:v0.44.3
+docker rmi lab-assistant-it-assistant lab-a5-sans-assistant docker/mcp-gateway:v0.44.3 mcp/duckduckgo
 ```
 
 ---
