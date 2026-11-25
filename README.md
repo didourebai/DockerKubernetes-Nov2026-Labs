@@ -1,4 +1,4 @@
-# DockerKubernetes-Nov2026-Labs
+# PER-538, « Fondements des conteneurs Docker et de Kubernetes »
 
 > Ce guide vous accompagne pas à pas dans la découverte de Docker et Kubernetes, en partant des bases jusqu'à des déploiements complets.
 
