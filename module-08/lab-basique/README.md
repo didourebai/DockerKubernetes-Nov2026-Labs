@@ -23,8 +23,28 @@ helm version
 ```
 
 Si Helm n'est pas installé :
-- **Windows :** `winget install Helm.Helm` (puis rouvrir le terminal)
-- **Mac :** `brew install helm`
+
+**Windows — Solution 1 (recommandée) : via Scoop** (sans droits administrateur), dans PowerShell :
+
+```powershell
+# 1. Installer Scoop
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+
+# 2. Installer Helm
+scoop install helm
+```
+
+**Windows — Solution 2 : autres gestionnaires de paquets** (si la solution 1 ne fonctionne pas) :
+
+```powershell
+winget install Helm.Helm         # nécessite le paquet "App Installer" (souvent absent sur les VM)
+choco install kubernetes-helm    # nécessite un terminal lancé en administrateur
+```
+
+Dans tous les cas, **rouvrir le terminal** puis vérifier avec `helm version`.
+
+**Mac :** `brew install helm`
 
 ---
 

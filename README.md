@@ -61,7 +61,7 @@ Chaque lab contient un `README.md` avec les instructions étape par étape, et t
 
 - **Docker Desktop** récent (4.50 ou plus) installé — [Télécharger ici](https://www.docker.com/products/docker-desktop/)
 - **Kubernetes activé** dans Docker Desktop pour les modules 07 et 08 (*Settings → Kubernetes → Enable Kubernetes*)
-- **Helm** pour le module 08 (`winget install Helm.Helm` sur Windows, `brew install helm` sur Mac)
+- **Helm** pour le module 08 (Windows : `scoop install helm`, voir l'installation de Scoop dans [module-08/lab-basique](module-08/lab-basique/README.md) ; `brew install helm` sur Mac)
 - Un terminal (PowerShell sur Windows, Terminal sur Mac)
 - Aucune connaissance en développement requise
 
