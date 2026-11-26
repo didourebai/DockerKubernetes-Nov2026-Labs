@@ -48,6 +48,8 @@ labs/
 │   ├── lab-stockage/           ← PersistentVolumeClaim
 │   ├── lab-deploiement/        ← Rolling update, scaling, rollback
 │   └── lab-fil-rouge/
+├── module-recap-kubernetes/    ← Révision Kubernetes (hors fil rouge)
+│   └── lab-basique/            ← Observer, casser, diagnostiquer, corriger (5 démos)
 └── module-08/                  ← Helm
 ```
 

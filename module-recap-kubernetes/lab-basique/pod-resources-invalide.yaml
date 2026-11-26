@@ -1,0 +1,14 @@
+# Partie 5 — Version volontairement invalide pour un petit cluster :
+# aucun nœud ne peut fournir 100 CPU, le Pod restera en Pending.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-resources
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      resources:
+        requests:
+          cpu: "100"
+          memory: "128Mi"

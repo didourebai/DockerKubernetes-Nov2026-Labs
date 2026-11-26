@@ -1,0 +1,17 @@
+# Partie 5 — Version corrigée : requests raisonnables et limites.
+# 100m = 0,1 CPU
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-resources
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "128Mi"
+        limits:
+          cpu: "200m"
+          memory: "256Mi"
